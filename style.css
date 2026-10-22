@@ -1,0 +1,136 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f4f4f9;
+    color: #222222;
+}
+
+.header {
+    background-color: #1a252f;
+    color: #ffffff;
+    text-align: center;
+    padding: 2rem;
+}
+
+.header h1 {
+    color: #ffffff;
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.header p {
+    color: #ddd;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #1a252f;
+}
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.card {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.card h3 {
+    color: #1a252f;
+    margin-bottom: 0.5rem;
+}
+
+.description {
+    color: #555555;
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+}
+
+.price {
+    font-weight: bold;
+    color: #d9534f;
+    font-size: 1.2rem;
+}
+/* Porsiyon Bilgisi ve Başlık Düzeni */
+.card-header-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.portion {
+    background-color: #e9ecef;
+    color: #495057;
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 0.25rem 0.6rem;
+    border-radius: 12px;
+    border: 1px solid #ced4da;
+}
+/* Porsiyon Bilgisi ve Başlık Düzeni */
+.card-header-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.portion {
+    background-color: #e9ecef;
+    color: #495057;
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 0.25rem 0.6rem;
+    border-radius: 12px;
+    border: 1px solid #ced4da;
+}
+/* Alt Bilgi Düzeni (Fiyat ve Kalan Porsiyon) */
+.card-footer-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+    padding-top: 0.5rem;
+    border-top: 1px solid #f0f0f0;
+}
+
+/* Kalan Porsiyon Genel Rozeti (Yeşil / Normal) */
+.stock {
+    font-size: 0.85rem;
+    font-weight: bold;
+    color: #2e7d32;
+    background-color: #e8f5e9;
+    padding: 0.3rem 0.6rem;
+    border-radius: 6px;
+}
+
+/* Stok Azaldığında (Turuncu / Uyarı) */
+.stock.low-stock {
+    color: #e65100;
+    background-color: #fff3e0;
+}
+
+/* Stok Bittiğinde (Kırmızı / Tükendi) */
+.stock.out-of-stock {
+    color: #c62828;
+    background-color: #ffebee;
+}
