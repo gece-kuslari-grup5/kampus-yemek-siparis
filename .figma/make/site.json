@@ -1,0 +1,10 @@
+{
+  "description": "Üniversite öğrencileri kampüs yemeklerini görüntüleyip porsiyon ve saat seçerek rezervasyon yapar, onaylar ve siparişlerini takip eder.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}
