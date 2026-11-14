@@ -19,7 +19,12 @@ Bu projenin temel amacı, öğrencilerin günlük yemekhane menüsünü önceden
 - **Arayüz Tasarımı:** Figma
 - **Prototipleme:** HTML5, CSS3, JavaScript (VS Code)
 
-## 📁 Proje Yapısı
-- `/docs` — Sprint planlama, daily loglar ve süreç raporları
-- `/assets` (veya `/design`) — Figma tasarım çıktıları, ikonlar ve görsel varlıklar
-- `/src` — Arayüz ve prototip kod dosyaları
+
+
+## 👥 Ekip — Grup 5 (Gece Kuşları) & Sprint 2 Rolleri
+- **Product Owner:** İsmail Demirağ
+- **Scrum Master:** Ahmet Oğuz Çavdar
+- **UI/UX Tasarımcısı:** Tuğba Turan
+- **Frontend Geliştirici:** Lara Demiralp
+- **Backend/Veri Geliştirici:** Nisa Çetin
+
