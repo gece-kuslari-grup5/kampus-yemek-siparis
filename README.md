@@ -5,6 +5,9 @@ Düzce Üniversitesi Yönetim Bilişim Sistemleri (YBS) 471 - Yazılım Yönetim
 ## 👥 Ekip — Grup 5 (Gece Kuşları) & Sprint 1 Rolleri
 - **Product Owner:** Tuğba Turan
 - **Scrum Master:** Nisa Çetin
+- **Geliştirici:** Lara Demiralp
+- **Geliştirici:** Ahmet Oğuz Çavdar
+- **Geliştirici:** İsmail Demirağ
 - **UI/UX Tasarımcısı:** Lara Demiralp
 - **Frontend Geliştirici:** Ahmet Oğuz Çavdar
 - **Backend/Veri Geliştirici:** İsmail Demirağ
@@ -18,6 +21,15 @@ Bu projenin temel amacı, öğrencilerin günlük yemekhane menüsünü önceden
 - **Versiyon Kontrol:** GitHub (Branch stratejisi: `main`, `develop`, `feature/*`)
 - **Arayüz Tasarımı:** Figma
 - **Prototipleme:** HTML5, CSS3, JavaScript (VS Code)
+
+
+
+## 👥 Ekip — Grup 5 (Gece Kuşları) & Sprint 2 Rolleri
+- **Product Owner:** İsmail Demirağ
+- **Scrum Master:** Ahmet Oğuz Çavdar
+- **Geliştirici:** Tuğba Turan
+- **Geliştirici:** Lara Demiralp
+- **Geliştirici:** Nisa Çetin
 
 ## 📁 Proje Yapısı
 - `/docs` — Sprint planlama, daily loglar ve süreç raporları
