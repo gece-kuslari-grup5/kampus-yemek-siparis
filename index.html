@@ -1,16 +1,33 @@
-<!doctype html>
-<html lang="<!-- figma:lang -->">
-  <head>
-    <!-- figma:head-start -->
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><!-- figma:title --></title>
-    <!-- figma:head-end -->
-  </head>
-  <body>
-    <!-- figma:body-start -->
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-    <!-- figma:body-end -->
-  </body>
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kampüs Yemek</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22%3E%3Crect width=%2232%22 height=%2232%22 rx=%228%22 fill=%22%23245deb%22/%3E%3Cpath d=%22M9 9h14v4a7 7 0 0 1-14 0V9Zm0 4h14m-7 7v4m-3 0h6%22 fill=%22none%22 stroke=%22white%22 stroke-width=%221.7%22 stroke-linecap=%22round%22/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="wrap bar">
+      <h1 class="brand"><a class="brand-link" href="./" aria-label="Kampüs Yemek ana sayfa"><span class="brand-icon">
+        <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 5h14v4a7 7 0 0 1-14 0V5Zm0 4h14m-7 7v4m-3 0h6"/></svg>
+      </span>Kampüs Yemek</a></h1>
+      <nav aria-label="Ana menü">
+        <button class="tab active" id="tabDaily">Menü</button>
+        <button class="tab" id="tabMonthly">Aylık Menü</button>
+        <button class="tab profile-tab" id="tabProfile" aria-label="Rezervasyonlarım" title="Rezervasyonlarım"><span aria-hidden="true">EA</span></button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <button class="btn back-button" id="appBack" hidden><span aria-hidden="true">←</span> Geri</button>
+    <div id="view"></div>
+  </main>
+
+  <footer>Kampüs Yemek · Öğrenci İşleri Daire Başkanlığı</footer>
+  <script src="features.js"></script>
+  <script src="script.js"></script>
+</body>
 </html>
