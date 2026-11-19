@@ -24,7 +24,7 @@ Bu projenin temel amacı, öğrencilerin günlük yemekhane menüsünü önceden
 ## 👥 Ekip — Grup 5 (Gece Kuşları) & Sprint 2 Rolleri
 - **Product Owner:** İsmail Demirağ
 - **Scrum Master:** Ahmet Oğuz Çavdar
-- **UI/UX Tasarımcısı:** Tuğba Turan
-- **Frontend Geliştirici:** Lara Demiralp
-- **Backend/Veri Geliştirici:** Nisa Çetin
+- **Geliştirici:** Tuğba Turan
+- **Geliştirici:** Lara Demiralp
+- **Geliştirici:** Nisa Çetin
 
