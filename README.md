@@ -8,6 +8,9 @@ Düzce Üniversitesi Yönetim Bilişim Sistemleri (YBS) 471 - Yazılım Yönetim
 - **Geliştirici:** Lara Demiralp
 - **Geliştirici:** Ahmet Oğuz Çavdar
 - **Geliştirici:** İsmail Demirağ
+- **UI/UX Tasarımcısı:** Lara Demiralp
+- **Frontend Geliştirici:** Ahmet Oğuz Çavdar
+- **Backend/Veri Geliştirici:** İsmail Demirağ
 
 ## 🎯 Proje Amacı ve Kapsamı
 Bu projenin temel amacı, öğrencilerin günlük yemekhane menüsünü önceden görüntüleyebilmesini, porsiyon kapasitesi dolmadan rezervasyon oluşturabilmesini, yemekhaneye geliş saatini seçebilmesini ve 'al götür / yemekhanede ye' tercihlerini yönetebilmesini sağlayan dijital bir altyapı sunmaktır.
@@ -28,3 +31,7 @@ Bu projenin temel amacı, öğrencilerin günlük yemekhane menüsünü önceden
 - **Geliştirici:** Lara Demiralp
 - **Geliştirici:** Nisa Çetin
 
+## 📁 Proje Yapısı
+- `/docs` — Sprint planlama, daily loglar ve süreç raporları
+- `/assets` (veya `/design`) — Figma tasarım çıktıları, ikonlar ve görsel varlıklar
+- `/src` — Arayüz ve prototip kod dosyaları
