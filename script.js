@@ -38,6 +38,7 @@ function getMenu(date) {
   });
 }
 
+
 function portionStatus(left) {
   return left <= 0 ? { cls: "out", label: "Tükendi" }
     : left < MAX_PORTIONS * .3 ? { cls: "low", label: "Azalıyor" }
@@ -63,6 +64,7 @@ const DISH_ART = {
   "Makarna": "🍝", "Fırın makarna": "🍝", "Ispanaklı börek": "🥐",
   "Turşu": "🥒", "Sütlaç": "🍮", "Revani": "🍰", "Cacık": "🥛", "Ayran": "🥛", "Yoğurt": "🥣"
 };
+
 const DESCRIPTIONS = {
   "Yayla çorbası": "Yoğurt, pirinç ve nane ile hazırlanan hafif çorba.",
   "Tavuk sote": "Taze sebzelerle sotelenmiş, baharatlı tavuk.",
@@ -160,6 +162,7 @@ function renderDaily() {
   });
   $("#reserve").onclick = () => {
     const error = openReserve(cur);
+
     if (error) {
       $("#reserve").disabled = true;
       $("#booking-notice").textContent = error;
@@ -236,6 +239,7 @@ function render() {
     else tab.removeAttribute("aria-current");
   });
   mode === "daily" ? renderDaily() : mode === "monthly" ? renderMonthly() : renderProfile();
+
 }
 
 $("#tabDaily").onclick = () => navigate("daily");

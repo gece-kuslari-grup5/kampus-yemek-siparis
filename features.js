@@ -1,3 +1,5 @@
+import { CATEGORIES, COMPLEMENTARY_PRODUCTS, MAX_PORTIONS, ROTATION, getMenu } from "./src/menu-data.js";
+
 const dateKey = d => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
 const parseKey = k => { const [y, m, d] = k.split("-").map(Number); return new Date(y, m - 1, d); };
 const RES_KEY = "kys_reservations";
@@ -117,7 +119,7 @@ dlg.className = "booking-dialog";
 dlg.setAttribute("aria-labelledby", "booking-title");
 document.body.appendChild(dlg);
 
-function openReserve(date, editing) {
+function openReserve(date, { editing, onClose }) {
   const key = dateKey(date);
   const menu = getMenu(date);
   const openingError = creationError(loadRes());
@@ -247,7 +249,7 @@ function openReserve(date, editing) {
 
   paint();
   dlg.oncancel = event => { if (busy) event.preventDefault(); };
-  dlg.addEventListener("close", render, { once: true });
+  dlg.addEventListener("close", onClose, { once: true });
   dlg.showModal();
   dlg.scrollTop = 0;
 }
@@ -259,7 +261,7 @@ function resStatus(r) {
   return ["Aktif", "act"];
 }
 
-function renderProfile() {
+function renderProfile(view, render) {
   const list = loadRes().filter(r => r.userId === USER_ID).sort((a, b) => (b.date + b.slot).localeCompare(a.date + a.slot));
   view.innerHTML = `<div class="datebar"><h2>Rezervasyonlarım</h2></div>
     ${list.length ? `<div class="grid">${list.map((r, index) => {
@@ -276,7 +278,7 @@ function renderProfile() {
 
   view.querySelectorAll("[data-edit]").forEach(button => button.onclick = () => {
     const record = list[button.dataset.edit];
-    openReserve(parseKey(record.date), record);
+    openReserve(parseKey(record.date), { editing: record, onClose: render });
   });
   view.querySelectorAll("[data-cancel]").forEach(button => button.onclick = async () => {
     if (!confirm("Rezervasyonu iptal etmek istediğine emin misin?")) return;
@@ -292,7 +294,13 @@ function renderProfile() {
       render();
     } catch {
       button.disabled = false;
-      $("#profile-status").textContent = "Rezervasyon iptal edilemedi. Tekrar dene.";
+      view.querySelector("#profile-status").textContent = "Rezervasyon iptal edilemedi. Tekrar dene.";
     }
   });
 }
+
+export {
+  DATE_NOTICE, DUPLICATE_NOTICE, SERVICE_SLOTS, bookingDateAllowed, dateKey,
+  formatDate, getPortions, istanbulClock, loadRes, openReserve, ownReservation,
+  parseKey, renderProfile, slotEnded, slotRemaining
+};
