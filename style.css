@@ -195,4 +195,6 @@ dialog .toast { position: sticky; bottom: 0; left: auto; transform: none; max-wi
   .booking-control { width: 100%; max-width: none; }
 }
 
-.booking-dialog .category-extras .choice:not(:disabled):not([aria-pressed="true"]) { background: var(--extras-bg); }
+.booking-dialog .category-extras .choice:not([aria-pressed="true"]) {
+  background: #ffffff;
+}

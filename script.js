@@ -1,4 +1,10 @@
 // ===== VERİ KATMANI: ileride getMenu(date) gerçek API çağrısıyla değiştirilecek =====
+import {
+  DATE_NOTICE, DUPLICATE_NOTICE, SERVICE_SLOTS, bookingDateAllowed, dateKey,
+  formatDate, getPortions, istanbulClock, loadRes, openReserve, ownReservation,
+  parseKey, renderProfile, slotEnded, slotRemaining
+} from "./features.js";
+
 const ROTATION = [
   ["Ezogelin çorbası", "Tavuk sote", "Bulgur pilavı", "Cacık"],
   ["Mercimek çorbası", "Kuru fasulye", "Pirinç pilavı", "Turşu"],
@@ -161,7 +167,7 @@ function renderDaily() {
     active.scrollIntoView({ block: "nearest", inline: "nearest" });
   });
   $("#reserve").onclick = () => {
-    const error = openReserve(cur);
+    const error = openReserve(cur, { onClose: render });
 
     if (error) {
       $("#reserve").disabled = true;
@@ -238,8 +244,7 @@ function render() {
     if (tab.classList.contains("active")) tab.setAttribute("aria-current", "page");
     else tab.removeAttribute("aria-current");
   });
-  mode === "daily" ? renderDaily() : mode === "monthly" ? renderMonthly() : renderProfile();
-
+mode === "daily" ? renderDaily() : mode === "monthly" ? renderMonthly() : renderProfile(view, render);
 }
 
 $("#tabDaily").onclick = () => navigate("daily");
