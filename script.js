@@ -1,9 +1,43 @@
-import {
-  DATE_NOTICE, DUPLICATE_NOTICE, SERVICE_SLOTS, bookingDateAllowed, dateKey,
-  formatDate, getPortions, istanbulClock, loadRes, openReserve, ownReservation,
-  parseKey, renderProfile, slotEnded, slotRemaining
-} from "./features.js";
-import { MAX_PORTIONS, getMenu } from "./src/menu-data.js";
+// ===== VERİ KATMANI: ileride getMenu(date) gerçek API çağrısıyla değiştirilecek =====
+const ROTATION = [
+  ["Ezogelin çorbası", "Tavuk sote", "Bulgur pilavı", "Cacık"],
+  ["Mercimek çorbası", "Kuru fasulye", "Pirinç pilavı", "Turşu"],
+  ["Domates çorbası", "Etli nohut", "Makarna", "Sütlaç"],
+  ["Tarhana çorbası", "Orman kebabı", "Şehriyeli pilav", "Revani"],
+  ["Yayla çorbası", "Fırın makarna", "Ispanaklı börek", "Ayran"]
+];
+
+const CATEGORIES = [
+  { id: "soup", label: "Çorba", position: 0, icon: "🥣" },
+  { id: "main", label: "Ana Yemek", position: 1, icon: "🍲" },
+  { id: "side", label: "Yardımcı Yemek", position: 2, icon: "🍚" },
+  { id: "extras", label: "Tamamlayıcı Ürünler", position: 4, icon: "🥗" },
+  { id: "dessert", label: "Tatlı", position: 3, icon: "🍮" }
+];
+const COMPLEMENTARY_PRODUCTS = ["Ayran", "Cacık", "Turşu", "Yoğurt", "Mevsim salatası", "Çoban salatası"];
+const MAX_PORTIONS = 500;
+
+function getMenu(date) {
+  if ([0, 6].includes(date.getDay())) return null;
+  const day = Math.round((Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()) - Date.UTC(date.getFullYear(), 0, 1)) / 864e5);
+  const indexes = [day % ROTATION.length, (day + 2) % ROTATION.length];
+  return CATEGORIES.map(category => {
+    let names;
+    switch (category.id) {
+      case "extras":
+        names = COMPLEMENTARY_PRODUCTS;
+        break;
+      case "dessert":
+        names = day % 2 ? [ROTATION[3][3], ROTATION[2][3]] : [ROTATION[2][3], ROTATION[3][3]];
+        break;
+      default:
+        names = indexes.map(index => ROTATION[index][category.position]);
+    }
+    const dishes = names.map(name => ({ id: name, name, category: category.id, icon: DISH_ART[name] || category.icon }));
+    return { ...category, dishes };
+  });
+}
+
 
 function portionStatus(left) {
   return left <= 0 ? { cls: "out", label: "Tükendi" }
@@ -26,6 +60,11 @@ let monthRef = new Date(cur.getFullYear(), cur.getMonth(), 1);
 const same = (a, b) => a.toDateString() === b.toDateString();
 
 const CALENDAR_ICON = '<svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M7 3v4m10-4v4M3 10h18"/></svg>';
+const DISH_ART = {
+  "Makarna": "🍝", "Fırın makarna": "🍝", "Ispanaklı börek": "🥐",
+  "Turşu": "🥒", "Sütlaç": "🍮", "Revani": "🍰", "Cacık": "🥛", "Ayran": "🥛", "Yoğurt": "🥣"
+};
+
 const DESCRIPTIONS = {
   "Yayla çorbası": "Yoğurt, pirinç ve nane ile hazırlanan hafif çorba.",
   "Tavuk sote": "Taze sebzelerle sotelenmiş, baharatlı tavuk.",
@@ -122,7 +161,8 @@ function renderDaily() {
     active.scrollIntoView({ block: "nearest", inline: "nearest" });
   });
   $("#reserve").onclick = () => {
-    const error = openReserve(cur, { onClose: render });
+    const error = openReserve(cur);
+
     if (error) {
       $("#reserve").disabled = true;
       $("#booking-notice").textContent = error;
@@ -198,7 +238,8 @@ function render() {
     if (tab.classList.contains("active")) tab.setAttribute("aria-current", "page");
     else tab.removeAttribute("aria-current");
   });
-  mode === "daily" ? renderDaily() : mode === "monthly" ? renderMonthly() : renderProfile(view, render);
+  mode === "daily" ? renderDaily() : mode === "monthly" ? renderMonthly() : renderProfile();
+
 }
 
 $("#tabDaily").onclick = () => navigate("daily");
